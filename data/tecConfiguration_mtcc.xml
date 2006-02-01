@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<Configuration xmlns="." xmlns:xsi="." xsi:schemaLocation= "." name="CMSConfiguration" version="0">
+ <Include name="test">
+      <File name="Geometry/CMSCommonData/data/materials.xml"                       url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecmaterial.xml"                 url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecmodpar.xml"                   url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecmodule3.xml"                  url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecmodule4.xml"                  url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecmodule5.xml"                  url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecmodule6.xml"                  url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecring3.xml"                    url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecring3f.xml"                   url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecring3b.xml"                   url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecring4.xml"                    url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecring4f.xml"                   url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecring4b.xml"                   url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecring5.xml"                    url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecring5f.xml"                   url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecring5b.xml"                   url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecring6.xml"                    url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecring6f.xml"                   url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecring6b.xml"                   url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecpetpar.xml"                   url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecpetal3.xml"                   url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecpetalf.xml"                   url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecpetalb.xml"                   url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecpetal8f.xml"                  url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecpetal8b.xml"                  url="."/>
+      <File name="Geometry/TrackerCommonData/data/tecwheel.xml"                    url="."/>
+      <File name="Geometry/MTCCTrackerCommonData/data/tecwheeld_mtcc.xml"          url="."/>
+      <File name="Geometry/MTCCTrackerCommonData/data/tecsupport_mtcc.xml"         url="."/>
+      <File name="Geometry/MTCCTrackerCommonData/data/tec_mtcc.xml"                url="."/>
+ </Include>
+ <Root fileName="tec_mtcc.xml"     logicalPartName="TEC"/>
+</Configuration>

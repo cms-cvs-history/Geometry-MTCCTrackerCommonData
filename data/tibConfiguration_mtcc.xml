@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<Configuration xmlns="." xmlns:xsi="." xsi:schemaLocation= "." name="CMSConfiguration" version="0">
+ <Include name="test">
+      <File name="Geometry/CMSCommonData/data/materials.xml"                       url="."/>
+      <File name="Geometry/TrackerCommonData/data/tibmaterial.xml"                 url="."/>
+      <File name="Geometry/TrackerCommonData/data/tibmodpar.xml"                   url="."/>
+      <File name="Geometry/TrackerCommonData/data/tibmodule0.xml"                  url="."/>
+      <File name="Geometry/TrackerCommonData/data/tibmodule0a.xml"                 url="."/>
+      <File name="Geometry/TrackerCommonData/data/tibmodule0b.xml"                 url="."/>
+      <File name="Geometry/TrackerCommonData/data/tibmodule2.xml"                  url="."/>
+      <File name="Geometry/MTCCTrackerCommonData/data/tibemptymodule2_mtcc.xml"    url="."/>
+      <File name="Geometry/TrackerCommonData/data/tibstringpar.xml"                url="."/>
+      <File name="Geometry/TrackerCommonData/data/tibstringds.xml"                 url="."/>
+      <File name="Geometry/TrackerCommonData/data/tibstring1c.xml"                 url="."/>
+      <File name="Geometry/TrackerCommonData/data/tibstring1lr.xml"                url="."/>
+      <File name="Geometry/TrackerCommonData/data/tibstring1ur.xml"                url="."/>
+      <File name="Geometry/MTCCTrackerCommonData/data/tibstring1_mtcc.xml"         url="."/>
+      <File name="Geometry/TrackerCommonData/data/tibstringss.xml"                 url="."/>
+      <File name="Geometry/TrackerCommonData/data/tibstring2c.xml"                 url="."/>
+      <File name="Geometry/TrackerCommonData/data/tibstring2lr.xml"                url="."/>
+      <File name="Geometry/TrackerCommonData/data/tibstring2ur.xml"                url="."/>
+      <File name="Geometry/MTCCTrackerCommonData/data/tibstring2_mtcc.xml"         url="."/>
+      <File name="Geometry/MTCCTrackerCommonData/data/tibemptystringss_mtcc.xml"   url="."/>
+      <File name="Geometry/MTCCTrackerCommonData/data/tibemptystring2lr_mtcc.xml"  url="."/>
+      <File name="Geometry/MTCCTrackerCommonData/data/tibemptystring2ur_mtcc.xml"  url="."/>
+      <File name="Geometry/MTCCTrackerCommonData/data/tibemptystring2_mtcc.xml"    url="."/>
+      <File name="Geometry/TrackerCommonData/data/tiblayerpar.xml"                 url="."/>
+      <File name="Geometry/MTCCTrackerCommonData/data/tiblayer1_mtcc.xml"          url="."/>
+      <File name="Geometry/MTCCTrackerCommonData/data/tiblayer2_mtcc.xml"          url="."/>
+      <File name="Geometry/MTCCTrackerCommonData/data/tib_mtcc.xml"                url="."/>
+ </Include>
+ <Root fileName="tib_mtcc.xml"     logicalPartName="TIB"/>
+</Configuration>
