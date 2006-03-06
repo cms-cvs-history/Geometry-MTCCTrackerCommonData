@@ -26,7 +26,7 @@
       <File name="Geometry/TrackerCommonData/data/tobrod4h.xml"                    url="."/>
       <File name="Geometry/TrackerCommonData/data/tobrod4l.xml"                    url="."/>
       <File name="Geometry/MTCCTrackerCommonData/data/tobrod4_mtcc.xml"            url="."/>
-      <File name="Geometry/MTCCTrackerCommonData/data/tobspport_mtcc.xml"          url="."/>
+      <File name="Geometry/MTCCTrackerCommonData/data/tobsupport_mtcc.xml"         url="."/>
       <File name="Geometry/MTCCTrackerCommonData/data/tob_mtcc.xml"                url="."/>
  </Include>
  <Root fileName="tob_mtcc.xml"     logicalPartName="TOB"/>
