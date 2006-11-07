@@ -1,7 +1,12 @@
 <?xml version="1.0"?>
 <DDDefinition xmlns="http://www.cern.ch/cms/DDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.cern.ch/cms/DDL ../../DetectorDescription/Schema/DDLSchema.xsd">
 
-<ConstantsSection label="tracker_mtcc.xml" eval="true">
+<!-- 2006/10/24:MEC (case) IMPORTANT: This file is for MTCC and was previously named tracker_mtcc.xml.
+     However for making things work together we should use the same DDL namespace, tracker,
+     therefore I've renamed it.
+-->
+
+<ConstantsSection label="tracker.xml" eval="true">
  <Constant name="zero"             value="0.0*fm"/>
  <Constant name="ActiveScreenL"    value="5.640*m"/>
  <Constant name="ActiveScreenR"    value="0.190*cm"/>
@@ -23,7 +28,13 @@
  <Constant name="PatchPannelZ"     value="2.865*m"/>
 </ConstantsSection>
 
-<SolidSection label="tracker_mtcc.xml">
+<SolidSection label="tracker.xml">
+ <Polycone name="Tracker" startPhi="0*deg" deltaPhi="360*deg" >
+  <ZSection z="-[cms:TrackBeamZ2]"  rMin="[cms:TrackBeamR2]"  rMax="[cms:TrackCalorR]" />
+  <ZSection z="-[cms:TrackBeamZ1]"  rMin="[cms:TrackBeamR1]"  rMax="[cms:TrackCalorR]" />
+  <ZSection z="[cms:TrackBeamZ1]"   rMin="[cms:TrackBeamR1]"  rMax="[cms:TrackCalorR]" />
+  <ZSection z="[cms:TrackBeamZ2]"   rMin="[cms:TrackBeamR2]"  rMax="[cms:TrackCalorR]" />
+ </Polycone>
  <Tubs name="TrackerScreenCont"     rMin="[ActiveScreenRin]" 
        rMax="[ActiveScreenRout]"    dz="[ActiveScreenL]/2" 
        startPhi="0*deg"             deltaPhi="360*deg"/>
@@ -56,7 +67,11 @@
        startPhi="0*deg"             deltaPhi="360*deg"/>
 </SolidSection>
 
-<LogicalPartSection label="tracker_mtcc.xml">
+<LogicalPartSection label="tracker.xml">
+ <LogicalPart name="Tracker" category="unspecified">
+  <rSolid name="Tracker"/>
+  <rMaterial name="materials:Air"/>
+ </LogicalPart>
  <LogicalPart name="TrackerScreenCont" category="unspecified">
   <rSolid name="TrackerScreenCont"/>
   <rMaterial name="materials:Foam"/>
@@ -99,63 +114,63 @@
  </LogicalPart>
 </LogicalPartSection>
  
-<RotationSection label="tracker_mtcc.xml">
+<RotationSection label="tracker.xml">
   <Rotation name="180D" thetaX="90*deg" phiX="180*deg"   thetaY="90*deg"
                         phiY="90*deg"   thetaZ="180*deg" phiZ="0*deg" />
 </RotationSection>
 
-<PosPartSection label="tracker_mtcc.xml">
+<PosPartSection label="tracker.xml">
  <PosPart copyNumber="1">
-   <rParent name="cms:Tracker"/>
-   <rChild name="tracker_mtcc:TrackerScreenCont"/>
+   <rParent name="tracker:Tracker"/>
+   <rChild name="tracker:TrackerScreenCont"/>
  </PosPart>
  <PosPart copyNumber="1">
-   <rParent name="tracker_mtcc:TrackerScreenCont"/>
-   <rChild name="tracker_mtcc:TrackerScreenSupp"/>
+   <rParent name="tracker:TrackerScreenCont"/>
+   <rChild name="tracker:TrackerScreenSupp"/>
  </PosPart>
  <PosPart copyNumber="1">
-   <rParent name="cms:Tracker"/>
-   <rChild name="tracker_mtcc:TrackerPatchPanel"/>
+   <rParent name="tracker:Tracker"/>
+   <rChild name="tracker:TrackerPatchPanel"/>
   <Translation x="[zero]" y="[zero]" z="[PatchPannelZ]"/>
  </PosPart>
  <PosPart copyNumber="2">
-   <rParent name="cms:Tracker"/>
-   <rChild name="tracker_mtcc:TrackerPatchPanel"/>
-  <rRotation name="tracker_mtcc:180D"/>
+   <rParent name="tracker:Tracker"/>
+   <rChild name="tracker:TrackerPatchPanel"/>
+  <rRotation name="tracker:180D"/>
   <Translation x="[zero]" y="[zero]" z="-[PatchPannelZ]"/>
  </PosPart>
  <PosPart copyNumber="1">
-   <rParent name="tracker_mtcc:TrackerPatchPanel"/>
-   <rChild name="tracker_mtcc:TrackerPatchPanelIn"/>
+   <rParent name="tracker:TrackerPatchPanel"/>
+   <rChild name="tracker:TrackerPatchPanelIn"/>
   <Translation x="[zero]" y="[zero]" z="-([PatchPannelL]-[PatchPannelInL])/2"/>
  </PosPart>
  <PosPart copyNumber="1">
-   <rParent name="tracker_mtcc:TrackerPatchPanel"/>
-   <rChild name="tracker_mtcc:TrackerPatchPanelOut"/>
+   <rParent name="tracker:TrackerPatchPanel"/>
+   <rChild name="tracker:TrackerPatchPanelOut"/>
   <Translation x="[zero]" y="[zero]" z="([PatchPannelL]-[PatchPannelOutL])/2"/>
  </PosPart>
  <PosPart copyNumber="1">
-   <rParent name="tracker_mtcc:TrackerPatchPanel"/>
-   <rChild name="tracker_mtcc:TrackerPatchPanelUp"/>
+   <rParent name="tracker:TrackerPatchPanel"/>
+   <rChild name="tracker:TrackerPatchPanelUp"/>
  </PosPart>
  <PosPart copyNumber="1">
-   <rParent name="cms:Tracker"/>
+   <rParent name="tracker:Tracker"/>
    <rChild name="tib_mtcc:TIB"/>
  </PosPart>
  <PosPart copyNumber="1">
-   <rParent name="cms:Tracker"/>
+   <rParent name="tracker:Tracker"/>
    <rChild name="tob_mtcc:TOB"/>
  </PosPart>
  <PosPart copyNumber="1">
-   <rParent name="cms:Tracker"/>
+   <rParent name="tracker:Tracker"/>
    <rChild name="tec_mtcc:TEC"/>
   <Translation x="[zero]" y="[zero]" z="[tec_mtcc:ZPos]"/>
  </PosPart>
 </PosPartSection>
 
 <Algorithm name="track:DDTrackerAngular">
-  <rParent name="tracker_mtcc:TrackerScreenCont"/>
-  <String  name="ChildName"   value="tracker_mtcc:TrackerScreen"/>
+  <rParent name="tracker:TrackerScreenCont"/>
+  <String  name="ChildName"   value="tracker:TrackerScreen"/>
   <Numeric name="N"           value="96" />
   <Numeric name="StartCopyNo" value="1" />
   <Numeric name="IncrCopyNo"  value="1" />
@@ -166,8 +181,8 @@
 </Algorithm>
 
 <Algorithm name="track:DDTrackerAngular">
-  <rParent name="tracker_mtcc:TrackerPatchPanel"/>
-  <String  name="ChildName"   value="tracker_mtcc:TrackerPatchPanelMid1"/>
+  <rParent name="tracker:TrackerPatchPanel"/>
+  <String  name="ChildName"   value="tracker:TrackerPatchPanelMid1"/>
   <Numeric name="N"           value="2" />
   <Numeric name="StartCopyNo" value="1" />
   <Numeric name="IncrCopyNo"  value="1" />
@@ -180,8 +195,8 @@
 </Algorithm>
 
 <Algorithm name="track:DDTrackerAngular">
-  <rParent name="tracker_mtcc:TrackerPatchPanel"/>
-  <String  name="ChildName"   value="tracker_mtcc:TrackerPatchPanelMid2"/>
+  <rParent name="tracker:TrackerPatchPanel"/>
+  <String  name="ChildName"   value="tracker:TrackerPatchPanelMid2"/>
   <Numeric name="N"           value="2" />
   <Numeric name="StartCopyNo" value="1" />
   <Numeric name="IncrCopyNo"  value="1" />
@@ -194,8 +209,8 @@
 </Algorithm>
 
 <Algorithm name="track:DDTrackerAngular">
-  <rParent name="tracker_mtcc:TrackerPatchPanel"/>
-  <String  name="ChildName"   value="tracker_mtcc:TrackerPatchPanelMid3"/>
+  <rParent name="tracker:TrackerPatchPanel"/>
+  <String  name="ChildName"   value="tracker:TrackerPatchPanelMid3"/>
   <Numeric name="N"           value="4" />
   <Numeric name="StartCopyNo" value="1" />
   <Numeric name="IncrCopyNo"  value="1" />
